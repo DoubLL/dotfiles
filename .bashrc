@@ -13,8 +13,10 @@ PS1='[\u@\h \W]\$ '
 HISTSIZE=10000 # Save more history
 HISTFILESIZE=20000
 HISTTIMEFORMAT="%F %T " # Add timestamps
-HISTIGNORE="ls:ll:cd:pwd:clear:history:config" # Dont save these
+HISTIGNORE="ls:ll:pwd:clear:history:config" # Dont save these
 # Note: set histappend to on with shopt
 
 
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+alias volume="wpctl set-volume $(pactl list short sinks | awk '/hdmi/ {print $1}')"
+alias mute="wpctl set-mute $(pactl list short sinks | awk '/hdmi/ {print $1}') toggle"
