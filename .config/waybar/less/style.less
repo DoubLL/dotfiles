@@ -1,0 +1,117 @@
+// Run
+// lessc ~/.config/waybar/less/style.less ~/.config/waybar/style.css 
+// or
+// less-watch-compiler ~/.config/waybar/less/ ~/.config/waybar/ 
+// or something idk
+
+@import "colors-light.less"; // swap this line
+
+* {
+    font-family: 'FiraCode Nerd Font';
+    background: transparent;
+    color: @text;
+}
+#window {
+    margin-top: 30px;
+    background-color: @surface0;
+    border-color: @text;
+    border-radius: 8px;
+    opacity: 0.8;
+}
+#clock {
+    background-color: @surface0;
+    padding: 4px 10px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    font-size: 0;
+    border-radius: 1rem;
+    background-color: @primary1;
+    border-color: @text;
+    color: @text;
+    margin: 2px 2px 0;
+    //opacity: 0.6;
+}
+#workspaces button.empty {
+    padding: 0 5px;
+    font-size: 0;
+    border-radius: 1rem;
+    background-color: @primary2;
+    border-color: @text;
+    color: @text;
+    margin: 2px 2px 0;
+    //opacity: 0.3;
+}
+#workspaces button.active {
+    padding: 0 5px;
+    font-size: 0;
+    border-radius: 1rem;
+    background-color: @primary0;
+    border-color: @text;
+    color: @text;
+    margin: 2px 2px 0;
+    //opacity: 1;
+}
+
+
+#custom-menu {
+    color: @primary;
+    font-size: 32px;
+    padding: 0 6px 0 0;
+    margin-bottom: 25px;
+}
+#custom-menu:hover {
+    color: @primary;
+    font-size: 80px;
+    padding: 0 18px 0 0;
+    margin-bottom: 17px;
+}
+#user {
+    background-color: @surface0;
+    padding: 4px 10px;
+    margin: 10px 10px 0 0;
+    border-radius: 8px;
+    opacity: 0.3;
+}
+#user:hover {
+    opacity: 1;
+}
+#custom-shutdown {
+    color: @red;
+    font-size: 18px;
+    padding: 0 10px 2px 6px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-right: 5px;
+    background-color: @surface0;
+}
+#custom-quit {
+    color: @red;
+    font-size: 18px;
+    padding: 1px 9px 1px 7px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-right: 5px;
+    background-color: @surface0;
+}
+#custom-reboot {
+    color: @red;
+    font-size: 18px;
+    padding: 0 8px 2px 7px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-right: 5px;
+    background-color: @surface0;
+}
+#custom-lock {
+    color: @red;
+    font-size: 18px;
+    padding: 0 8px 2px 7px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-right: 5px;
+    background-color: @surface0;
+}
