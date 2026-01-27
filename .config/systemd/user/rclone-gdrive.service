@@ -3,9 +3,15 @@ Description=RClone Google Drive Mount
 After=network-online.target
 
 [Service]
-Type=simple
-ExecStart=/usr/bin/rclone mount gdrive: /home/doubll/gdrive --vfs-cache-mode writes --rc --rc-no-auth
-ExecStop=/bin/umount /home/doubll/gdrive
+Type=simple                            # vvv Note: chown $USER:$USER, otherwise root
+ExecStart=/usr/bin/rclone mount gdrive: /gdrive \
+    --vfs-cache-mode writes \
+    --rc \
+    --rc-no-auth \
+    --rc-web-gui \
+    --rc-web-gui-no-open-browser \
+    --rc-addr localhost:5572
+ExecStop=/bin/umount /gdrive
 Restart=on-failure
 
 [Install]
