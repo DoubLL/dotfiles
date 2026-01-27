@@ -1,102 +1,67 @@
-[{
-    "layer": "top",
-    "position": "top",
-    "exclusive": false,
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    "hyprland/workspaces": {
-        "format": ""
-    }
-},
-{
-    "layer": "top",
-    "position": "top",
-    "exclusive": false,
-    "passthrough": true,
-    "modules-center": [
-        "hyprland/window"
-    ],
-    "hyprland/window": {
-        "separate-outputs": true,
-        "icon": true,
-        "icon-size": 48,
-        "format": ""
-    }
-},
-{
-    "layer": "top",
-    "position": "top",
-    "exclusive": false,
-    "modules-right": [
-        "group/group-power"
-    ],
-    "group/group-power": {
-        "orientation": "horizontal",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "not-power",
-            "transition-left-to-right": false
+[
+    {
+        "layer": "top",
+        "position": "top",
+        "modules-center": [
+            "hyprland/workspaces"
+        ],
+        "modules-right": [
+            "group/group-power"
+        ],
+        "group/group-power": {
+            "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 500,
+                "children-class": "not-power",
+                "transition-left-to-right": false
+            },
+            "modules": [
+                "user",
+                "custom/shutdown",
+                "custom/reboot",
+                "custom/quit",
+                "custom/lock"
+            ]
         },
-        "modules": [
-            "user",
-            "custom/shutdown",
-            "custom/reboot",
-            "custom/quit",
-            "custom/lock"
-        ]
+        "custom/quit": {
+            "format": "󰗼",
+            "tooltip-format": "Exit",
+            "on-click": "hyprctl dispatch exit"
+        },
+        "custom/lock": {
+            "format": "󰍁",
+            "tooltip-format": "Lock", //TODO: ~/.config/hypr/hyprlock.conf
+            "on-click": "hyprlock"
+        },
+        "custom/reboot": {
+            "format": "󰜉",
+            "tooltip-format": "Reboot",
+            "on-click": "reboot"
+        },
+        "custom/shutdown": {
+            "format": "⏻",
+            "tooltip-format": "Shutdown",
+            "on-click": "shutdown now"
+        },
+        "user": {
+            "format": "{user}"
+            //TODO "icon": true
+        },
+        "hyprland/workspaces": {
+            "format": ""
+        }
     },
-    "custom/quit": {
-        "format": "󰗼",
-        "tooltip-format": "Exit",
-        "on-click": "hyprctl dispatch exit"
-    },
-    "custom/lock": {
-        "format": "󰍁",
-        "tooltip-format": "Lock", //TODO: ~/.config/hypr/hyprlock.conf
-        "on-click": "hyprlock"
-    },
-    "custom/reboot": {
-        "format": "󰜉",
-        "tooltip-format": "Reboot",
-        "on-click": "reboot"
-    },
-    "custom/shutdown": {
-        "format": "⏻",
-        "tooltip-format": "Shutdown",
-        "on-click": "shutdown now"
-    },
-    "user": {
-        "format": "{user}"
-        //TODO "icon": true
+    {
+        "layer": "top",
+        "position": "bottom",
+        "exclusive": false,
+        "passthrough": true,
+        "modules-center": [
+                "clock"
+        ],
+        "clock": {
+            "interval": 1,
+            "format": "{:%d. %b | %H:%M:%S}"
+        }
     }
-},
-{
-    "layer": "top",
-    "position": "bottom",
-    "exclusive": false,
-    "modules-center": [
-        "clock"
-    ],
-    "clock": {
-        "interval": 1,
-        "format": "{:%d. %b | %H:%M:%S}"
-    }
-},
-{
-    "layer": "top",
-    "position": "bottom",
-    "exclusive": false,
-    "modules-left": [
-    ],
-    "modules-center": [
-        "custom/menu"
-    ],
-    "modules-right": [
-    ],
-    "custom/menu": {
-        "format": "{icon}",
-        "format-icons": "󰣇",
-        "on-click": "hyprlauncher"
-    }
-}]
+]
