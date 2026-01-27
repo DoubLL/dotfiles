@@ -18,5 +18,5 @@ HISTIGNORE="ls:ll:pwd:clear:history:config" # Dont save these
 
 
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
-alias volume="wpctl set-volume $(pactl list short sinks | awk '/hdmi/ {print $1}')"
+alias volume="wpctl set-volume $(pactl list short sinks | awk '/virtual_default_sink/ {print $1}')"
 alias mute="wpctl set-mute $(pactl list short sinks | awk '/hdmi/ {print $1}') toggle"
